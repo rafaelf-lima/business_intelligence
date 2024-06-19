@@ -430,7 +430,7 @@
     <created_date>2024/06/15 22:47:35.492</created_date>
     <modified_user>-</modified_user>
     <modified_date>2024/06/15 22:47:35.492</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -965,8 +965,80 @@ FROM "public".transacional_tabela
       </output>
     </remotesteps>
     <GUI>
-      <xloc>605</xloc>
-      <yloc>135</yloc>
+      <xloc>160</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Carrega_atualiza_dim_consultorio</name>
+    <type>DimensionLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <schema>public</schema>
+    <table>dim_consultorio</table>
+    <connection>dw_clinica</connection>
+    <commit>100</commit>
+    <update>Y</update>
+    <fields>
+      <key>
+        <name>id_consultorio</name>
+        <lookup>nk_consultorio</lookup>
+      </key>
+      <date>
+        <name/>
+        <from>etl_data_inicio</from>
+        <to>etl_data_fim</to>
+      </date>
+      <field>
+        <name>nome_consultorio</name>
+        <lookup>nm_consultorio</lookup>
+        <update>Punch through</update>
+      </field>
+      <field>
+        <name>nome_consultorio</name>
+        <lookup>cnpj</lookup>
+        <update>Punch through</update>
+      </field>
+      <field>
+        <name>cidade_consultorio</name>
+        <lookup>cidade</lookup>
+        <update>Punch through</update>
+      </field>
+      <return>
+        <name>sk_consultorio</name>
+        <rename/>
+        <creation_method>autoinc</creation_method>
+        <use_autoinc>Y</use_autoinc>
+        <version>etl_versao</version>
+      </return>
+    </fields>
+    <sequence/>
+    <min_year>1900</min_year>
+    <max_year>2199</max_year>
+    <cache_size>5000</cache_size>
+    <preload_cache>N</preload_cache>
+    <use_start_date_alternative>Y</use_start_date_alternative>
+    <start_date_alternative>sysdate</start_date_alternative>
+    <start_date_field_name/>
+    <useBatch>N</useBatch>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>560</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1097,80 +1169,8 @@ FROM "public".transacional_tabela
       </output>
     </remotesteps>
     <GUI>
-      <xloc>797</xloc>
-      <yloc>135</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Carrega_atualiza_dim_consultorio</name>
-    <type>DimensionLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <schema>public</schema>
-    <table>dim_consultorio</table>
-    <connection>dw_clinica</connection>
-    <commit>100</commit>
-    <update>Y</update>
-    <fields>
-      <key>
-        <name>id_consultorio</name>
-        <lookup>nk_consultorio</lookup>
-      </key>
-      <date>
-        <name/>
-        <from>etl_data_inicio</from>
-        <to>etl_data_fim</to>
-      </date>
-      <field>
-        <name>nome_consultorio</name>
-        <lookup>nm_consultorio</lookup>
-        <update>Punch through</update>
-      </field>
-      <field>
-        <name>nome_consultorio</name>
-        <lookup>cnpj</lookup>
-        <update>Punch through</update>
-      </field>
-      <field>
-        <name>cidade_consultorio</name>
-        <lookup>cidade</lookup>
-        <update>Punch through</update>
-      </field>
-      <return>
-        <name>sk_consultorio</name>
-        <rename/>
-        <creation_method>autoinc</creation_method>
-        <use_autoinc>Y</use_autoinc>
-        <version>etl_versao</version>
-      </return>
-    </fields>
-    <sequence/>
-    <min_year>1900</min_year>
-    <max_year>2199</max_year>
-    <cache_size>5000</cache_size>
-    <preload_cache>N</preload_cache>
-    <use_start_date_alternative>Y</use_start_date_alternative>
-    <start_date_alternative>sysdate</start_date_alternative>
-    <start_date_field_name/>
-    <useBatch>N</useBatch>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1008</xloc>
-      <yloc>144</yloc>
+      <xloc>352</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

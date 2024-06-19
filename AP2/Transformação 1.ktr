@@ -431,7 +431,7 @@
     <created_date>2024/06/15 19:17:33.438</created_date>
     <modified_user>-</modified_user>
     <modified_date>2024/06/15 19:17:33.438</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -510,6 +510,64 @@
     </hop>
   </order>
   <step>
+    <name>Ajusta horário</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>// Supondo que o nome do campo original seja "horario"
+var dataHoraOriginal = horario; // Atribua o valor do campo a uma variável
+
+// Divide a string no espaço para separar a data da hora
+var partes = dataHoraOriginal.split(' ');
+
+// Seleciona a parte da hora e divide nos dois pontos para obter horas e minutos
+var horaMinuto = partes[1].split(':');
+
+// Combina horas e minutos no formato desejado
+var horarioFormatado = horaMinuto[0] + ':' + horaMinuto[1];
+
+// Atribui o resultado ao campo de saída
+horaMinutoFormatado = horarioFormatado;
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>horaMinutoFormatado</name>
+        <rename>horaMinutoFormatado</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Carrega dados</name>
     <type>ExcelInput</type>
     <description/>
@@ -536,7 +594,12 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>C:\Users\rafae\Documents\arquivo_transacional.xlsx</name>
+      <name>C:/Users/AndreSilveira/business_intelligence/AP2/arquivo_transacional.xlsx</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name/>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -777,248 +840,6 @@
     </GUI>
   </step>
   <step>
-    <name>Verifica dados</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id_paciente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nome_paciente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>data_nascimento_paciente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cpf_paciente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>id_profissional</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nome_profisisonal</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cpf_profisisonal</name>
-        <rename/>
-      </field>
-      <field>
-        <name>id_consulta</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nome_consulta</name>
-        <rename/>
-      </field>
-      <field>
-        <name>id_consultorio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nome_consultorio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cidade_consultorio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cnpj_consultorio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>data_atendimento</name>
-        <rename/>
-      </field>
-      <field>
-        <name>valor</name>
-        <rename/>
-      </field>
-      <field>
-        <name>horario</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ajusta horário</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>// Supondo que o nome do campo original seja "horario"
-var dataHoraOriginal = horario; // Atribua o valor do campo a uma variável
-
-// Divide a string no espaço para separar a data da hora
-var partes = dataHoraOriginal.split(' ');
-
-// Seleciona a parte da hora e divide nos dois pontos para obter horas e minutos
-var horaMinuto = partes[1].split(':');
-
-// Combina horas e minutos no formato desejado
-var horarioFormatado = horaMinuto[0] + ':' + horaMinuto[1];
-
-// Atribui o resultado ao campo de saída
-horaMinutoFormatado = horarioFormatado;
-</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>horaMinutoFormatado</name>
-        <rename>horaMinutoFormatado</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Verifica dados finais</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id_paciente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nome_paciente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>data_nascimento_paciente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cpf_paciente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>id_profissional</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nome_profisisonal</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cpf_profisisonal</name>
-        <rename/>
-      </field>
-      <field>
-        <name>id_consulta</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nome_consulta</name>
-        <rename/>
-      </field>
-      <field>
-        <name>id_consultorio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nome_consultorio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cidade_consultorio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cnpj_consultorio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>data_atendimento</name>
-        <rename/>
-      </field>
-      <field>
-        <name>valor</name>
-        <rename/>
-      </field>
-      <field>
-        <name>horaMinutoFormatado</name>
-        <rename>horario</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Exporta dados</name>
     <type>TableOutput</type>
     <description/>
@@ -1058,6 +879,159 @@ horaMinutoFormatado = horarioFormatado;
     </remotesteps>
     <GUI>
       <xloc>864</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Verifica dados</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>id_paciente</name>
+      </field>
+      <field>
+        <name>nome_paciente</name>
+      </field>
+      <field>
+        <name>data_nascimento_paciente</name>
+      </field>
+      <field>
+        <name>cpf_paciente</name>
+      </field>
+      <field>
+        <name>id_profissional</name>
+      </field>
+      <field>
+        <name>nome_profisisonal</name>
+      </field>
+      <field>
+        <name>cpf_profisisonal</name>
+      </field>
+      <field>
+        <name>id_consulta</name>
+      </field>
+      <field>
+        <name>nome_consulta</name>
+      </field>
+      <field>
+        <name>id_consultorio</name>
+      </field>
+      <field>
+        <name>nome_consultorio</name>
+      </field>
+      <field>
+        <name>cidade_consultorio</name>
+      </field>
+      <field>
+        <name>cnpj_consultorio</name>
+      </field>
+      <field>
+        <name>data_atendimento</name>
+      </field>
+      <field>
+        <name>valor</name>
+      </field>
+      <field>
+        <name>horario</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Verifica dados finais</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>id_paciente</name>
+      </field>
+      <field>
+        <name>nome_paciente</name>
+      </field>
+      <field>
+        <name>data_nascimento_paciente</name>
+      </field>
+      <field>
+        <name>cpf_paciente</name>
+      </field>
+      <field>
+        <name>id_profissional</name>
+      </field>
+      <field>
+        <name>nome_profisisonal</name>
+      </field>
+      <field>
+        <name>cpf_profisisonal</name>
+      </field>
+      <field>
+        <name>id_consulta</name>
+      </field>
+      <field>
+        <name>nome_consulta</name>
+      </field>
+      <field>
+        <name>id_consultorio</name>
+      </field>
+      <field>
+        <name>nome_consultorio</name>
+      </field>
+      <field>
+        <name>cidade_consultorio</name>
+      </field>
+      <field>
+        <name>cnpj_consultorio</name>
+      </field>
+      <field>
+        <name>data_atendimento</name>
+      </field>
+      <field>
+        <name>valor</name>
+      </field>
+      <field>
+        <name>horaMinutoFormatado</name>
+        <rename>horario</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
