@@ -1,9 +1,0 @@
-Passo a Passo:
-
-1 - Criar um banco de dados com uma tabela chamada "staging";
-2 - Abrir a transformação "etl01_carga_staging_area.ktr" no Pentaho;
-3 - Configurar input de dados do primeiro step, ajustando o diretório do arquivo excel 'arquivo_transacional.xlsx';
-4 - Configurar o output de dados (último step de carga) com a conexão para o banco staging e executar a transformação;
-5 -  Criar um banco de dados dw_clinica e executar o "script_dimensional.sql";
-6 - Configurar as conexões do staging_area e dw_clinica nos inputs e outputs de cada transformação;
-7 - Executar o "job_etl_carga_dw.kjb";
